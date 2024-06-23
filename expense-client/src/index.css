@@ -1,0 +1,195 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #f0f9fc;      
+  color: #f0f9fc;
+} 
+
+/* headers */
+header {
+  width: 100%;
+  background-color: #15aeea;
+  top: 0;
+  position: fixed;
+  z-index: 1;
+  text-align: center; 
+}
+
+header h1 {
+  font-size: 40px;
+}
+
+header p {
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+h2 {
+  color: #f0f9fc;
+  font-size: 30px;
+}
+/* end headers */
+
+/* view expenses */
+.viewExpenses {
+  width: 120%;
+}
+
+.scrollable {
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+.card2 {
+  position: relative;
+  border: 2px solid #1543EA;
+  border-radius: 30px;
+  padding: 5px 20px;
+  background-color: #b3b8b9; 
+  width: 66%;
+  height: 600px;
+  margin: 10px;
+  margin-top: 175px;
+}
+
+/* end view expenses */
+
+/* add expenses */
+
+.card1 {
+  border: 2px solid #1543EA;
+  border-radius: 30px;
+  padding: 5px 20px;
+  width: 16.5%;
+  background-color: #b3b8b9;
+  margin: 10px 40px;
+  margin-left: 80px;
+  text-align: center;
+  height: 600px;
+  position: relative;
+  top: 165px;
+}
+
+.cards {
+  display: flex;
+}
+
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+  top: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+#dateExpense, #typeExpense, #numAmount {
+  width: 50%;
+}
+
+#rent:hover, #utilities:hover, #groceries:hover, #gas:hover, #phone:hover, #loans:hover, #insurance:hover, #entertainment:hover, #other:hover {
+  background-color: #b3b8b9;
+}
+
+textarea {
+  resize: none;
+}
+
+#description {
+  width: 100%;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+/* end add expenses */
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  background-color: #15aeea;
+  z-index: 100;
+}
+
+/* buttons */
+button {
+  background-color: #15EABC;
+  border-radius: 4px;
+  border: none;
+  color: black;
+  width: 100px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #aae7da;
+}
+
+.subButton {
+  display: flex;
+  justify-content: center;
+}
+
+.clearButton {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  right: 258px;
+  margin-bottom: 5px;
+}
+/*end buttons */
+
+/* table */
+th {
+  text-align: center;
+  background: #15aeea;
+  border: 1px solid #1543EA;
+  width: 10.4%;
+  padding: 15px;
+}
+
+td {
+  text-align: center;
+  padding: 6px;
+  border: 1px solid #15EABC;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+td:nth-child(4) {
+  max-width: 75px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+/* end table */
+
+/* /* pie chart */
+.chartContainer {
+  height: 100px;
+  justify-content: center;
+}
+
+.chart-wrapper {
+  width: 550px;
+  height: 550px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 675px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+#myChart {
+  margin: 20px;
+}
+/* end pie chart */
