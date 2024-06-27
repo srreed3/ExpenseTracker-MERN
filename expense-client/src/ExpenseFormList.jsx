@@ -38,13 +38,13 @@ function ExpenseFormList() {
   //sort expenses by date
   const sortedExpenses = [...expenses].sort((b, a) => new Date(a.date) - new Date(b.date));
 
-  const expenseItems = sortedExpenses.map((expense, index) => {
-    return  <tr key={expense.id}>
+  const expenseItems = sortedExpenses.map((expense) => {
+    return  <tr key={expense._id}>
               <td>{expense.date}</td>
               <td>{expense.type}</td>
               <td>{expense.amount}</td>
               <td>{expense.description}</td>
-              <td><button onClick={() => handleRemoveExpense(index)}>X</button></td>
+              <td><button onClick={() => handleRemoveExpense(expense._id)}>X</button></td>
             </tr>
   })
 
@@ -88,16 +88,21 @@ function ExpenseFormList() {
   }
 
   //remove single expense
-  const handleRemoveExpense = (index) => {
-    const newExpenses = expenses.filter((_, i) => i !== index);
+  const handleRemoveExpense = async (id) => {
+    const expensesUrl = `http://localhost:8080/expense/${id}`;
+    await fetch(expensesUrl, { method: 'DELETE' });
+  
+    const newExpenses = expenses.filter((expense) => expense._id !== id);
     setExpenses(newExpenses);
     /* calculateTotalExpenses(newExpenses); */
   }
 
   //remove all expenses
-  function handleClearAllExpenses() {
-    setExpenses([])
-    setTotalExpenses(0);
+  const handleClearAllExpenses = async () => {
+    const expensesUrl = 'http://localhost:8080/expenses';
+    await fetch(expensesUrl, { method: 'DELETE' });
+    setExpenses([]);
+    /* setTotalExpenses(0);*/ 
   }
 
   const handleDateChange = (e) => {
