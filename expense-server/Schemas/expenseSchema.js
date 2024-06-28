@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-//creating schemato deinfe structure
+//creating schemato defined structure
 const expenseSchema = new mongoose.Schema({
     date: { type: Date, required: true },
     type: { type: String, required: true },

@@ -7,7 +7,7 @@ function ExpenseFormList() {
   const [expenseType, setExpenseType] = useState('')
   const [expenseAmount, setExpenseAmount] = useState('')
   const [expenseDescription, setExpenseDescription] = useState('')
-  /* const [totalExpenses, setTotalExpenses] = useState(0); */
+  const [totalExpenses, setTotalExpenses] = useState(0);
 
   //format date correctly
   const formatDate = (dateString) => {
@@ -28,7 +28,7 @@ function ExpenseFormList() {
       date: formatDate(expense.date)
     }));
     setExpenses(formattedExpenses)
-    /* calculateTotalExpenses(formattedExpenses) */
+    calculateTotalExpenses(formattedExpenses)
   }
 
   useEffect(() => {
@@ -84,7 +84,7 @@ function ExpenseFormList() {
     //add expense to expense array
     const newExpenses = [...expenses, expense];
     setExpenses(newExpenses);
-    /* calculateTotalExpenses(newExpenses); */
+    calculateTotalExpenses(newExpenses);
   }
 
   //remove single expense
@@ -94,7 +94,7 @@ function ExpenseFormList() {
   
     const newExpenses = expenses.filter((expense) => expense._id !== id);
     setExpenses(newExpenses);
-    /* calculateTotalExpenses(newExpenses); */
+    calculateTotalExpenses(newExpenses);
   }
 
   //remove all expenses
@@ -102,7 +102,7 @@ function ExpenseFormList() {
     const expensesUrl = 'http://localhost:8080/expenses';
     await fetch(expensesUrl, { method: 'DELETE' });
     setExpenses([]);
-    /* setTotalExpenses(0);*/ 
+    setTotalExpenses(0);
   }
 
   const handleDateChange = (e) => {
@@ -121,11 +121,11 @@ function ExpenseFormList() {
     setExpenseDescription(e.target.value)
   }
 
-  /* //calculate total expenses
+  //calculate total expenses
   const calculateTotalExpenses = (expensesList) => {
     const total = expensesList.reduce((sum, expense) => sum + expense.amount, 0)
     setTotalExpenses(total)
-  }; */
+  };
 
   return (
     <>
@@ -162,6 +162,12 @@ function ExpenseFormList() {
                       <button id="submit" type="submit" onClick={handleAddExpense}>SUBMIT</button>
                   </div>
               </form>
+              <div className='totalContainer'>
+                  <h2>Total: ${totalExpenses}</h2>
+                  <div className="clearButton">
+                      <button onClick={() => handleClearAllExpenses()}>CLEAR ALL EXPENSES</button>
+                  </div>
+              </div>
         </div>
       </div>
 
@@ -169,9 +175,6 @@ function ExpenseFormList() {
         <div className="viewExpenses">
             <div id="output" className="scrollable">    
                 <h2 className="viewExpensesHeader">View Expenses</h2> 
-                <div className="clearButton">
-                    <button onClick={() => handleClearAllExpenses()}>CLEAR ALL EXPENSES</button>
-                </div>
                 <table id="expenseTable">
                     <thead>
                         <tr>
@@ -188,9 +191,6 @@ function ExpenseFormList() {
                 </table>
             </div>
         </div>
-        {/* <div>
-          <h2>Total: ${totalExpenses}</h2>
-        </div> */}
       </div>
     </div>
     </>
