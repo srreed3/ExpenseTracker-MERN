@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ExpenseChart from './ExpenseChart'
 
 function ExpenseFormList() {
 
@@ -126,6 +127,8 @@ function ExpenseFormList() {
     const total = expensesList.reduce((sum, expense) => sum + expense.amount, 0)
     setTotalExpenses(total)
   };
+  //hide scroll bar
+  document.body.style.overflow = 'hidden';
 
   return (
     <>
@@ -193,6 +196,7 @@ function ExpenseFormList() {
         </div>
       </div>
     </div>
+    <ExpenseChart expenses={expenses} />
     </>
   )
 }
