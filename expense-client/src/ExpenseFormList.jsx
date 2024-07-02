@@ -4,7 +4,7 @@ import ExpenseChart from './ExpenseChart'
 function ExpenseFormList() {
 
   const [expenses, setExpenses] = useState([])
-  const [expenseDate, setExpenseDate] = useState('')                 /* may have to convert to date */
+  const [expenseDate, setExpenseDate] = useState('')
   const [expenseType, setExpenseType] = useState('')
   const [expenseAmount, setExpenseAmount] = useState('')
   const [expenseDescription, setExpenseDescription] = useState('')

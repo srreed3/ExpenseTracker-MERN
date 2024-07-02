@@ -12,18 +12,6 @@ async function main() {
     await mongoose.connect('mongodb+srv://rosereed1212:5sH5hGk0wVlQ0Srz@expenses.o60l2oe.mongodb.net/expenses_database?retryWrites=true&w=majority&appName=Expenses')
 }
 
-//testing
-/* async function createExpense() {
-    const expense = new Expense({date: '05/02/2025', type: 'Rent', amount: 22.34, description: 'N/A'})
-
-    try {
-        await expense.save()
-    } catch(err) {
-        console.log(error)
-    }
-}
-createExpense() */
-
 //enable cors; allow other domains access to server
 app.use(cors())
 
