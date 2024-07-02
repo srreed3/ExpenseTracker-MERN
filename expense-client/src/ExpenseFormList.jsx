@@ -125,7 +125,7 @@ function ExpenseFormList() {
   //calculate total expenses
   const calculateTotalExpenses = (expensesList) => {
     const total = expensesList.reduce((sum, expense) => sum + expense.amount, 0)
-    setTotalExpenses(total)
+    setTotalExpenses(total.toFixed(2))
   };
   //hide scroll bar
   document.body.style.overflow = 'hidden';
